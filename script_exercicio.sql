@@ -1,18 +1,36 @@
 DO 
 $$
 DECLARE
-	a NUMERIC (5, 2);
-	b NUMERIC (5, 2);
-	c NUMERIC (5, 2);
-	delta NUMERIC (5, 2);
+	n1 INTEGER;
+	anterior INTEGER;
+	sucessor INTEGER;
+	raiz_cubica NUMERIC (5, 2);
+	raiz_quandrada NUMERIC (5, 2);
 BEGIN
-	a := random() * 10;
-	b := random() * 10;
-	c := random() * 10;
-	delta := b^2 - 4 * a * c;
-	RAISE NOTICE 'A: %. B: %. C: %. Delta é: %', a, b, c, delta;
+	n1 := 1 + random() * 100::INT;
+	anterior := n1 - 1;
+	sucessor := n1 + 1;
+	raiz_cubica := ||/anterior;
+	raiz_quandrada := |/sucessor;
+	RAISE NOTICE 'Número: %. Anterior: %. Sucessor: %. Raiz Cúbica: %. Raiz Quadrada: %', n1, anterior, sucessor, raiz_cubica, raiz_quandrada;
 END;
 $$
+
+-- DO 
+-- $$
+-- DECLARE
+-- 	a NUMERIC (5, 2);
+-- 	b NUMERIC (5, 2);
+-- 	c NUMERIC (5, 2);
+-- 	delta NUMERIC (5, 2);
+-- BEGIN
+-- 	a := random() * 10;
+-- 	b := random() * 10;
+-- 	c := random() * 10;
+-- 	delta := b^2 - 4 * a * c;
+-- 	RAISE NOTICE 'A: %. B: %. C: %. Delta é: %', a, b, c, delta;
+-- END;
+-- $$
 
 -- DO 
 -- $$
