@@ -1,20 +1,41 @@
 DO 
 $$
 DECLARE
-	n1 INTEGER;
-	anterior INTEGER;
-	sucessor INTEGER;
-	raiz_cubica NUMERIC (5, 2);
-	raiz_quandrada NUMERIC (5, 2);
+	altura NUMERIC (5, 2);
+	largura NUMERIC (5, 2);
+	area NUMERIC (5, 2);
+	preco NUMERIC (5, 2);
+	valor_terreno NUMERIC (5, 2);
+	limite_inferior NUMERIC (5, 2) := 60;
+ 	limite_superior NUMERIC (5, 2) := 70;
 BEGIN
-	n1 := 1 + random() * 100::INT;
-	anterior := n1 - 1;
-	sucessor := n1 + 1;
-	raiz_cubica := ||/anterior;
-	raiz_quandrada := |/sucessor;
-	RAISE NOTICE 'Número: %. Anterior: %. Sucessor: %. Raiz Cúbica: %. Raiz Quadrada: %', n1, anterior, sucessor, raiz_cubica, raiz_quandrada;
+	altura := random() * 10;
+	largura := random() * 10;
+	area := altura * largura;
+	preco := limite_inferior + floor(random() * (limite_superior - limite_inferior + 1));
+	valor_terreno := area * preco;
+	RAISE NOTICE 'altura: %. largura: %. area: %. preco: %. valor_terreno: %', altura, largura, area, preco, valor_terreno;
 END;
 $$
+
+
+-- DO 
+-- $$
+-- DECLARE
+-- 	n1 INTEGER;
+-- 	anterior INTEGER;
+-- 	sucessor INTEGER;
+-- 	raiz_cubica NUMERIC (5, 2);
+-- 	raiz_quandrada NUMERIC (5, 2);
+-- BEGIN
+-- 	n1 := 1 + random() * 100::INT;
+-- 	anterior := n1 - 1;
+-- 	sucessor := n1 + 1;
+-- 	raiz_cubica := ||/anterior;
+-- 	raiz_quandrada := |/sucessor;
+-- 	RAISE NOTICE 'Número: %. Anterior: %. Sucessor: %. Raiz Cúbica: %. Raiz Quadrada: %', n1, anterior, sucessor, raiz_cubica, raiz_quandrada;
+-- END;
+-- $$
 
 -- DO 
 -- $$
