@@ -1,22 +1,42 @@
-DO 
+DO
 $$
 DECLARE
-	altura NUMERIC (5, 2);
-	largura NUMERIC (5, 2);
-	area NUMERIC (5, 2);
-	preco NUMERIC (5, 2);
-	valor_terreno NUMERIC (5, 2);
-	limite_inferior NUMERIC (5, 2) := 60;
- 	limite_superior NUMERIC (5, 2) := 70;
+	ano_nascimento INTEGER;
+	ano_atual INTEGER;
+	idade INTEGER;
 BEGIN
-	altura := random() * 10;
-	largura := random() * 10;
-	area := altura * largura;
-	preco := limite_inferior + floor(random() * (limite_superior - limite_inferior + 1));
-	valor_terreno := area * preco;
-	RAISE NOTICE 'altura: %. largura: %. area: %. preco: %. valor_terreno: %', altura, largura, area, preco, valor_terreno;
+	ano_nascimento := floor(random() * (2000 - 1980 + 1)) + 1980;
+	ano_atual := floor(random() * (2020 - 2010 + 1)) + 2010;
+	idade := ano_atual - ano_nascimento;
+	RAISE NOTICE 'Ano de nascimento: %. Ano atual: %. Idade: %', ano_nascimento, ano_atual, idade;
+
 END;
 $$
+
+
+
+
+
+-- DO 
+-- $$
+-- DECLARE
+-- 	altura NUMERIC (5, 2);
+-- 	largura NUMERIC (5, 2);
+-- 	area NUMERIC (5, 2);
+-- 	preco NUMERIC (5, 2);
+-- 	valor_terreno NUMERIC (5, 2);
+-- 	limite_inferior NUMERIC (5, 2) := 60;
+--  	limite_superior NUMERIC (5, 2) := 70;
+-- BEGIN
+-- 	altura := random() * 10;
+-- 	largura := random() * 10;
+-- 	area := altura * largura;
+-- 	preco := limite_inferior + floor(random() * (limite_superior - limite_inferior + 1));
+-- 	valor_terreno := area * preco;
+-- 	RAISE NOTICE 'altura: %. largura: %. area: %. preco: %. valor_terreno: %', altura, largura, area, preco, valor_terreno;
+-- END;
+-- $$
+
 
 
 -- DO 
